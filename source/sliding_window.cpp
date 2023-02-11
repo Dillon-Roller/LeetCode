@@ -20,5 +20,5 @@ int find_longest_subarray(const vector<int>& v, const int k) {
 }
 
 int main() {
-    assert(find_longest_subarray({10, 20, 30}, 50));
+    assert(find_longest_subarray({10, 20, 30}, 50) == 2);
 }
