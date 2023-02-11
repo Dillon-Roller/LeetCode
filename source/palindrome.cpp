@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -16,5 +17,5 @@ bool is_palindrone(string word) {
 }
 
 int main() {
-    cout << is_palindrone("racecar") << endl;
+    assert(is_palindrone("racecar"));
 }

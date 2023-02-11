@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -19,6 +20,5 @@ int find_longest_subarray(const vector<int>& v, const int k) {
 }
 
 int main() {
-    cout << find_longest_subarray({10, 20, 30}, 50) << endl;
-    return 0;
+    assert(find_longest_subarray({10, 20, 30}, 50));
 }
