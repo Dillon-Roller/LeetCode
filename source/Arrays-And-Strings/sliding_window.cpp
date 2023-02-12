@@ -39,6 +39,27 @@ double find_max_average(const vector<int>& nums, int k) {
     return max_sum / k;
 }
 
+int longest_ones(const vector<int>& nums, int k) {
+    int left = 0;
+    int right;
+    int zero_count = 0;
+
+    for(int right = 0; right < nums.size(); right++) {
+        if(nums[right] == 0) {
+            k--;
+        }
+
+        if (k < 0) {
+            if(nums[left] == 0) {
+                k++;
+            }
+            left++;
+        }
+    }
+
+    return right - left;
+}
+
 int main() {
     assert(find_longest_subarray({10, 20, 30}, 50) == 2);
 
