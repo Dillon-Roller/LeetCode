@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool is_palindrone(const string& word) {
+bool is_palindrome(const string& word) {
     int left = 0;
     int right = word.size() - 1;
 
@@ -67,11 +67,22 @@ vector<int> merge_vectors(const vector<int>& v1, const vector<int>& v2) {
 }
 
 bool is_subsequence(const string& s, const string& t) {
-    return true;
+    int i = 0;
+    int j = 0;
+
+    while(i < s.size() && j < t.size()) {
+        if(s[i] == t[j]) {
+            i++;
+        }
+        j++;
+    }
+
+    return i == s.size();
 }
 
 int main() {
-    assert(is_palindrone("racecar"));
+    assert(is_palindrome("racecar"));
+    assert(!is_palindrome("racecars"));
     assert(find_pairwise_sum({1, 2, 4, 6, 8, 9, 14, 15}, 13));
     assert(merge_vectors({1, 3, 5}, {2, 4, 6}) == vector<int>({1, 2, 3, 4, 5, 6}));
     assert(is_subsequence("ace", "abcde"));
