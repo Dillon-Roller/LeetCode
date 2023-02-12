@@ -36,7 +36,16 @@ bool find_pairwise_sum(const vector<int>& numbers, const int target) {
     return false;
 }
 
-vector<int> merge_vectors(const vector<int>& v1, const vector<int>& v2) {
+bool is_sorted(const vector<int> v) {
+    for(int i = 0; i < v.size() - 1; i++) {
+        if(v[i] > v[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> merge_sorted(const vector<int>& v1, const vector<int>& v2) {
     vector<int> v;
     int i = 0;
     int j = 0;
@@ -83,7 +92,17 @@ bool is_subsequence(const string& s, const string& t) {
 int main() {
     assert(is_palindrome("racecar"));
     assert(!is_palindrome("racecars"));
+
     assert(find_pairwise_sum({1, 2, 4, 6, 8, 9, 14, 15}, 13));
-    assert(merge_vectors({1, 3, 5}, {2, 4, 6}) == vector<int>({1, 2, 3, 4, 5, 6}));
+    assert(!find_pairwise_sum({1, 2, 4, 6, 8, 9, 14, 15}, 100));
+
+    assert(is_sorted({1, 2, 3}));
+    assert(!is_sorted({3, 2, 1}));
+
+    assert(is_sorted(merge_sorted({1, 3, 5}, {2, 4, 6})));
+
     assert(is_subsequence("ace", "abcde"));
+    assert(!is_subsequence("ace", "cbade"));
+
+
 }
