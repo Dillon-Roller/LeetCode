@@ -43,7 +43,7 @@ vector<int> merge_vectors(const vector<int>& v1, const vector<int>& v2) {
 
     while (i < v1.size() && j < v2.size()) {
         if(v1[i] < v2[j]) {
-            v.push_back(v1[i++]);
+            v.push_back(v1[i]);
             i++;
         }
         else {
@@ -66,13 +66,13 @@ vector<int> merge_vectors(const vector<int>& v1, const vector<int>& v2) {
 
 }
 
-bool is_subsequence(const string& word, const string& target) {
-    
+bool is_subsequence(const string& s, const string& t) {
+    return true;
 }
 
 int main() {
     assert(is_palindrone("racecar"));
     assert(find_pairwise_sum({1, 2, 4, 6, 8, 9, 14, 15}, 13));
     assert(merge_vectors({1, 3, 5}, {2, 4, 6}) == vector<int>({1, 2, 3, 4, 5, 6}));
-
+    assert(is_subsequence("ace", "abcde"));
 }
