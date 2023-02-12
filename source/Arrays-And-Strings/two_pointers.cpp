@@ -104,5 +104,5 @@ int main() {
     assert(is_subsequence("ace", "abcde"));
     assert(!is_subsequence("ace", "cbade"));
 
-
+    
 }
