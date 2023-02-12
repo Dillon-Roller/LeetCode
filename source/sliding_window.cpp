@@ -5,7 +5,9 @@
 using namespace std;
 
 int find_longest_subarray(const vector<int>& v, const int k) {
-    int left = 0, sum = 0, max_length = 0;
+    int left = 0;
+    int sum = 0;
+    int max_length = 0;
 
     for (int right = 0; right < v.size(); right++) {
         sum += v[right];
