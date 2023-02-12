@@ -35,7 +35,6 @@ double find_max_average(const vector<int>& nums, int k) {
         sum += nums[i] - nums[i - k];
         max_sum = max(max_sum, sum);
     }
-    cout << max_sum / k << endl;
     return max_sum / k;
 }
 
@@ -63,5 +62,5 @@ int longest_ones(const vector<int>& nums, int k) {
 int main() {
     assert(find_longest_subarray({10, 20, 30}, 50) == 2);
 
-    assert(find_max_average({1,12,-5,-6,50,3}, 4) == 5.0/2);
+    assert(find_max_average({1,12,-5,-6,50,3}, 4) == 12.75);
 }
