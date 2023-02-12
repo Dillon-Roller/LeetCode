@@ -89,6 +89,21 @@ bool is_subsequence(const string& s, const string& t) {
     return i == s.size();
 }
 
+void reverse_string(string& s) {
+    for(int i = 0; i < s.size() / 2; i++) {
+        swap(s[i], s[s.size() - i - 1]);
+    }
+}
+
+vector<int> sorted_squares(const vector<int>& numbers) {
+    vector<int> squares = numbers;
+    for(int i = 0; i < squares.size(); i++) {
+        squares[i] = squares[i] * squares[i];
+    }
+
+    return squares;
+}
+
 int main() {
     assert(is_palindrome("racecar"));
     assert(!is_palindrome("racecars"));
@@ -103,6 +118,10 @@ int main() {
 
     assert(is_subsequence("ace", "abcde"));
     assert(!is_subsequence("ace", "cbade"));
-
     
+    string s = "hello";
+    reverse_string(s);
+    assert(s == "olleh");
+
+    assert(sorted_squares({10, 6, 3, 1}) == vector<int>({100, 36, 9, 1}));
 }
