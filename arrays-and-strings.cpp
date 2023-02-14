@@ -155,7 +155,6 @@ int longest_ones(const vector<int>& nums, int k) {
         }
     }
 
-    cout << right - left << endl;
     return right - left;
 }
 
@@ -164,6 +163,7 @@ vector<int> build_prefix(const vector<int>& nums) {
     for (int i = 1; i < nums.size(); i++) {
         prefix.push_back(prefix.back() + nums[i]);
     }
+    return prefix;
 }
 
 vector<bool> answer_queries(vector<int>& nums, vector<vector<int>>& queries, int limit) {
@@ -206,4 +206,8 @@ int main() {
     assert(find_max_average({1,12,-5,-6,50,3}, 4) == 12.75);
 
     assert(longest_ones({0, 1, 1, 1, 0, 1, 0, 1}, 1) == 5);
+
+    vector<int> nums = {1, 6, 3, 2, 7, 2};
+    vector<vector<int>> query = {{0, 3}, {2, 5}, {2, 4}};
+    assert(answer_queries(nums, query, 13) == vector<bool>({true, false, true}));
 }
