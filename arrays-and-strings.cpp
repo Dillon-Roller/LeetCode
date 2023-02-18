@@ -4,6 +4,7 @@
 #include <cassert>
 #include <unordered_map>
 #include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
@@ -219,6 +220,20 @@ vector<int> intersection(vector<vector<int>>& nums) {
     
     sort(ans.begin(), ans.end());
     return ans;
+}
+
+bool areOccurrencesEqual(string s) {
+    unordered_map<char, int> counts;
+    for (char c: s) {
+        counts[c]++;
+    }
+    
+    unordered_set<int> frequencies;
+    for (auto [key, val]: counts) {
+        frequencies.insert(val);
+    }
+    
+    return frequencies.size() == 1;
 }
 
 int main() {
