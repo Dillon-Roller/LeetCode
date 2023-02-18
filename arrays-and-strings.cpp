@@ -236,6 +236,20 @@ bool areOccurrencesEqual(string s) {
     return frequencies.size() == 1;
 }
 
+int subarraySum(vector<int>& nums, int k) {
+    unordered_map<int, int> counts;
+    counts[0] = 1;
+    int ans = 0, curr = 0;
+    
+    for (int num: nums) {
+        curr += num;
+        ans += counts[curr - k];
+        counts[curr]++;
+    }
+    
+    return ans;
+}
+
 int main() {
     assert(is_palindrome("racecar"));
     assert(!is_palindrome("racecars"));
