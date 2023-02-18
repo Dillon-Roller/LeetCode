@@ -8,7 +8,11 @@ using namespace std;
 
 bool isValid(string s) {
     stack<char> stack;
-    unordered_map<char, char> matching {{'(',')'}, {'{','}'}, {'[',']'}};
+    unordered_map<char, char> matching {
+        {'(',')'}, 
+        {'{','}'}, 
+        {'[',']'}
+    };
     
     for (char c: s) {
         if (matching.find(c) != matching.end()) {
