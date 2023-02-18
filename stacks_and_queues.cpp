@@ -37,7 +37,8 @@ string removeDuplicates(string s) {
     for (char c: s) {
         if (!ans.empty() && ans.back() == c) {
             ans.pop_back();
-        } else {
+        } 
+        else {
             ans.push_back(c);
         }
     }
