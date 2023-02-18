@@ -15,3 +15,8 @@ int getSum(Node* head) {
     return head->val + getSum(head->next);
 }
 
+void add_node(Node* prev_node, Node* node_to_add) {
+    node_to_add->next = prev_node->next;
+    prev_node->next = node_to_add;
+}
+
