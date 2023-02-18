@@ -120,3 +120,28 @@ int minimumCardPickup(vector<int>& cards) {
     
     return ans == INT_MAX ? -1 : ans;
 }
+
+int maximumSum(vector<int>& nums) {
+    unordered_map<int, int> dic;
+    int ans = -1;
+    
+    for (int num: nums) {
+        int digitSum = getDigitSum(num);
+        if (dic.find(digitSum) != dic.end()) {
+            ans = max(ans, num + dic[digitSum]);
+        }
+        dic[digitSum] = max(dic[digitSum], num);
+    }
+
+    return ans;
+}
+
+int getDigitSum(int num) {
+    int digitSum = 0;
+    while (num > 0) {
+        digitSum += num % 10;
+        num /= 10;
+    }
+    
+    return digitSum;
+}
