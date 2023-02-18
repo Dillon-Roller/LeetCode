@@ -3,6 +3,7 @@
 #include <vector>
 #include <cassert>
 #include <unordered_map>
+#include <algorithm>
 
 using namespace std;
 
@@ -200,6 +201,25 @@ int findLongestSubstring(string s, int k) {
     return ans;
 }
 
+vector<int> intersection(vector<vector<int>>& nums) {
+    unordered_map<int, int> counts;
+    for (vector<int>& arr: nums) {
+        for (int x: arr) {
+            counts[x]++;
+        }
+    }
+    
+    int n = int(nums.size());
+    vector<int> ans;
+    for (auto [key, val]: counts) {
+        if (val == n) {
+            ans.push_back(key);
+        }
+    }
+    
+    sort(ans.begin(), ans.end());
+    return ans;
+}
 
 int main() {
     assert(is_palindrome("racecar"));
