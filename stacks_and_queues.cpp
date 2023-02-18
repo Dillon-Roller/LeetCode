@@ -13,7 +13,8 @@ bool isValid(string s) {
     for (char c: s) {
         if (matching.find(c) != matching.end()) {
             stack.push(c);
-        } else {
+        } 
+        else {
             if (stack.empty()) {
                 return false;
             }
@@ -30,7 +31,23 @@ bool isValid(string s) {
     return stack.empty();
 }
 
+string removeDuplicates(string s) {
+    // Strings in C++ are mutable
+    string ans = "";
+    for (char c: s) {
+        if (!ans.empty() && ans.back() == c) {
+            ans.pop_back();
+        } else {
+            ans.push_back(c);
+        }
+    }
+    
+    return ans;
+}
+
 int main() {
     assert(isValid("[({({[]})})]"));
     assert(!isValid("[{(])}]"));
+
+    assert(removeDuplicates("aabccbab") == "ab");
 }
