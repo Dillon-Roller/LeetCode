@@ -107,17 +107,15 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 }
 
 int minimumCardPickup(vector<int>& cards) {
-    unordered_map<int, vector<int>> dic;
+    unordered_map<int, int> dic;
+    int ans = INT_MAX;
     
     for (int i = 0; i < cards.size(); i++) {
-        dic[cards[i]].push_back(i);
-    }
-    
-    int ans = INT_MAX;
-    for (auto [key, arr]: dic) {
-        for (int i = 0; i < arr.size() - 1; i++) {
-            ans = min(ans, arr[i + 1] - arr[i] + 1);
+        if (dic.find(cards[i]) != dic.end()) {
+            ans = min(ans, i - dic[cards[i]] + 1);
         }
+        
+        dic[cards[i]] = i;
     }
     
     return ans == INT_MAX ? -1 : ans;
