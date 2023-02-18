@@ -264,6 +264,22 @@ int numberOfSubarrays(vector<int>& nums, int k) {
     return ans;
 }
 
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+    unordered_map<string, vector<string>> groups;
+    for (string& s: strs) {
+        string t = s;
+        sort(t.begin(), t.end());
+        groups[t].push_back(s);
+    }
+    
+    vector<vector<string>> ans;
+    for (auto [key, val]: groups) {
+        ans.push_back(val);
+    }
+    
+    return ans;
+}
+
 int main() {
     assert(is_palindrome("racecar"));
     assert(!is_palindrome("racecars"));
