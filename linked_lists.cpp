@@ -20,3 +20,16 @@ void add_node(Node* prev_node, Node* node_to_add) {
     prev_node->next = node_to_add;
 }
 
+Node* reverseList(Node* head) {
+    Node* prev = nullptr;
+    Node* curr = head;
+    while (curr != nullptr) {
+        Node* nextNode = curr->next; // first, make sure we don't lose the next node
+        curr->next = prev;              // reverse the direction of the pointer
+        prev = curr;                   // set the current node to prev for the next node
+        curr = nextNode;               // move on
+    }
+
+    return prev;
+}
+
